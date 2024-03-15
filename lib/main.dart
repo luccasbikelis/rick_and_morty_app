@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:teste_mobile/app/app.dart';
-import 'package:teste_mobile/app/controller.dart';
+import 'package:rick_and_morty_app/app/app.dart';
+import 'package:rick_and_morty_app/app/controller.dart';
 
 Future main() async {
   Controller controller = Controller();

@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:teste_mobile/dependency_injection/injector.dart';
+import 'package:rick_and_morty_app/dependency_injection/injector.dart';
 
 
 class Controller with ChangeNotifier {

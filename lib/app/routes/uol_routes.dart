@@ -1,5 +1,5 @@
 
-import 'package:teste_mobile/presenter/splash_screen/ui/splash_screen.dart';
+import 'package:rick_and_morty_app/presenter/splash_screen/ui/splash_screen.dart';
 
 import 'routes.dart';
 

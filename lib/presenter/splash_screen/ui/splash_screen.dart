@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:teste_mobile/app/routes/routes.dart';
+import 'package:rick_and_morty_app/app/routes/routes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

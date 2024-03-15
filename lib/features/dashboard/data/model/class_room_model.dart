@@ -1,5 +1,5 @@
-import 'package:teste_mobile/features/dashboard/domain/entities/class_room_entity.dart';
-import 'package:teste_mobile/share/base/model/model.dart';
+import 'package:rick_and_morty_app/features/dashboard/domain/entities/class_room_entity.dart';
+import 'package:rick_and_morty_app/share/base/model/model.dart';
 
 class ClassRoomModel extends ClassRoomEntity implements Model {
   ClassRoomModel(

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:teste_mobile/features/dashboard/data/model/class_room_model.dart';
+import 'package:rick_and_morty_app/features/dashboard/data/model/class_room_model.dart';
 
 void main() {
   group('ClassRoomModel', () {

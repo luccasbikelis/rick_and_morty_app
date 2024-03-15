@@ -1,7 +1,7 @@
-import 'package:teste_mobile/features/dashboard/data/model/class_room_model.dart';
-import 'package:teste_mobile/features/dashboard/data/model/list_class_room_model.dart';
-import 'package:teste_mobile/features/dashboard/domain/entities/list_class_room_entity.dart';
-import 'package:teste_mobile/share/base/datasource/datasource.dart';
+import 'package:rick_and_morty_app/features/dashboard/data/model/class_room_model.dart';
+import 'package:rick_and_morty_app/features/dashboard/data/model/list_class_room_model.dart';
+import 'package:rick_and_morty_app/features/dashboard/domain/entities/list_class_room_entity.dart';
+import 'package:rick_and_morty_app/share/base/datasource/datasource.dart';
 
 class ClassRoomDataSource implements DataSource<dynamic> {
   @override

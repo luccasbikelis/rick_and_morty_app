@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:teste_mobile/design_system/colors/ds_colors.dart';
-import 'package:teste_mobile/features/dashboard/domain/entities/list_class_room_entity.dart';
-import 'package:teste_mobile/presenter/dashboard/controllers/get_class_room_controller.dart';
-import 'package:teste_mobile/share/util/date_util.dart';
+import 'package:rick_and_morty_app/design_system/colors/ds_colors.dart';
+import 'package:rick_and_morty_app/features/dashboard/domain/entities/list_class_room_entity.dart';
+import 'package:rick_and_morty_app/presenter/dashboard/controllers/get_class_room_controller.dart';
+import 'package:rick_and_morty_app/share/util/date_util.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({Key? key}) : super(key: key);

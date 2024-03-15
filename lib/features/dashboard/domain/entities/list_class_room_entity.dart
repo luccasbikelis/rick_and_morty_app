@@ -1,5 +1,5 @@
 
-import 'package:teste_mobile/features/dashboard/domain/entities/class_room_entity.dart';
+import 'package:rick_and_morty_app/features/dashboard/domain/entities/class_room_entity.dart';
 
 class ListClassRoomEntity {
   final List<ClassRoomEntity> listClassRoom;
