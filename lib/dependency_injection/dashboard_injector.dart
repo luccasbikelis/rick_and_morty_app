@@ -1,25 +1,26 @@
 import 'package:get_it/get_it.dart';
-import 'package:rick_and_morty_app/features/dashboard/data/datasource/class_room_datasource.dart';
-import 'package:rick_and_morty_app/features/dashboard/data/repository/class_room_repository_impl.dart';
-import 'package:rick_and_morty_app/features/dashboard/domain/repository/class_room_repository.dart';
-import 'package:rick_and_morty_app/features/dashboard/domain/usecase/class_room_usecase.dart';
-import 'package:rick_and_morty_app/presenter/dashboard/controllers/get_class_room_controller.dart';
+import 'package:rick_and_morty_app/features/dashboard/data/datasource/character_datasource.dart';
+import 'package:rick_and_morty_app/features/dashboard/data/repository/character_repository_impl.dart';
+import 'package:rick_and_morty_app/features/dashboard/domain/repository/character_repository.dart';
+import 'package:rick_and_morty_app/features/dashboard/domain/usecase/character_usecase.dart';
+import 'package:rick_and_morty_app/presenter/dashboard/controllers/list_characters_controller.dart';
+import 'package:rick_and_morty_app/share/boundaries/http_connection/http_facade.dart';
 
 class DashboardInjector {
   final getIT = GetIt.I;
   call() {
-    GetIt.I.registerFactory<ClassRoomDataSource>(() => ClassRoomDataSource());
+    GetIt.I.registerFactory<CharacterDataSource>(() => CharacterDataSource(GetIt.I<HttpFacade>(),));
 
-    GetIt.I.registerFactory<ClassRoomRepository>(
-      () => ClassRoomRepositoryImpl(GetIt.I<ClassRoomDataSource>()),
+    GetIt.I.registerFactory<CharacterRepository>(
+      () => CharacterRepositoryImpl(GetIt.I<CharacterDataSource>()),
     );
 
-    GetIt.I.registerFactory<ClassRoomUseCase>(() => ClassRoomUseCaseImpl(
-          GetIt.I<ClassRoomRepository>(),
+    GetIt.I.registerFactory<CharacterUseCase>(() => CharacterUseCaseImpl(
+          GetIt.I<CharacterRepository>(),
         ));
 
-    GetIt.I.registerLazySingleton<GetClassRoomController>(() => GetClassRoomController(
-          getIT<ClassRoomUseCase>(),
+    GetIt.I.registerLazySingleton<ListCharactersController>(() => ListCharactersController(
+          getIT<CharacterUseCase>(),
         ));
   }
 }

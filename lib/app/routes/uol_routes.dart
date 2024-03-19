@@ -1,10 +1,7 @@
-
-import 'package:rick_and_morty_app/presenter/splash_screen/ui/splash_screen.dart';
-
 import 'routes.dart';
 
 Widget initialPage(RouteSettings routeSettings, Controller controller) {
-  Widget initialPage = const SplashScreen();
+  Widget initialPage = const DashboardView();
 
   return initialPage;
 }
@@ -25,11 +22,15 @@ Widget getPage(RouteSettings routeSettings, Controller controller) {
   switch (routeSettings.name) {
     case '/':
       return initialPage(routeSettings, controller);
-      case SplashScreen.routeName:
-      return const SplashScreen();
+    
     case DashboardView.routeName:
       return const DashboardView();
-      
+    case CharacterDetailsView.routeName:
+      final params = routeSettings.arguments as Map;
+      return CharacterDetailsView(
+        character: params["character"],
+        index: params["index"],
+      );
 
     default:
       return const AppUnknowView();
