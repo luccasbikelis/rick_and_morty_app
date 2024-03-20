@@ -1,35 +1,35 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:rick_and_morty_app/features/dashboard/data/model/character_model.dart';
 import 'package:rick_and_morty_app/features/dashboard/data/model/list_characters_model.dart';
-import 'package:rick_and_morty_app/share/boundaries/http_connection/http_facade.dart';
 import 'package:rick_and_morty_app/src/ui/dashboard/interactor/dashboard_interactor_receiver.dart';
 import 'package:rick_and_morty_app/src/ui/dashboard/repository/dashboard_repository.dart';
 
 class DashboardExecutor implements DashboardRepository {
-  final HttpFacade httpFacade;
   final DashboardInteractorReceiver _receiver;
-  DashboardExecutor(this._receiver, this.httpFacade);
+  DashboardExecutor(this._receiver);
 
   @override
   Future<void> getListDashboard() async {
-    const method = HttpMethod.get;
-    String endPoint = 'https://rickandmortyapi.com/api/character';
+    const String endPoint = 'https://rickandmortyapi.com/api/character';
 
-    final response = await httpFacade(method, endPoint);
+    try {
+      final response = await http.get(Uri.parse(endPoint));
 
-    final characters = (response['results'] as List).map((event) => CharacterModel.fromJson(event)).toList();
-
-    final listCharacters = ListCharactersModel(characters);
-
-    _receiver.receiveListDashboard(listCharacters);
-
-    // return listCharacters;
+      if (response.statusCode == 200) {
+        final jsonData = jsonDecode(response.body);
+        final characters = (jsonData['results'] as List).map((character) => CharacterModel.fromJson(character)).toList();
+        final listCharacters = ListCharactersModel(characters);
+        _receiver.receiveListDashboard(listCharacters);
+      } else {
+        print('Erro: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Erro: $e');
+    }
   }
-
-  // @override
-  // void setListDashboard(List<CharacterEntity>? listCharacter) {
-
-  // }
 }
+
 
 
 // class CharacterDataSource implements DataSource {

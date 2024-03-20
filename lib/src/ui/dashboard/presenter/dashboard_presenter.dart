@@ -36,25 +36,4 @@ class DashboardPresenter extends ChangeNotifier implements DashboardProvider, Da
 }
 
 
-// class ListCharactersController extends ChangeNotifier {
-//   final CharacterUseCase characterUseCase;
 
-//   final listCharactersListenable = ValueNotifier<ListCharactersEntity?>(null);
-
-//   ListCharactersController(
-//     this.characterUseCase,
-//   );
-
-//   Future<void> call() async {
-//     try {
-//       final useCase = await characterUseCase();
-
-//       listCharactersListenable.value = useCase;
-//       listCharactersListenable.notifyListeners();
-//     } catch (error) {
-//       Exception("Error");
-//     }
-//   }
-
- 
-// }
