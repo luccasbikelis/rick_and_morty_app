@@ -3,13 +3,14 @@ import 'package:http/http.dart' as http;
 import 'package:rick_and_morty_app/features/dashboard/data/model/character_model.dart';
 import 'package:rick_and_morty_app/features/dashboard/data/model/list_characters_model.dart';
 import 'package:rick_and_morty_app/src/ui/dashboard/interactor/dashboard_interactor_receiver.dart';
-import 'package:rick_and_morty_app/src/ui/dashboard/repository/dashboard_repository.dart';
 
-class DashboardExecutor implements DashboardRepository {
+class DashboardExecutor 
+// implements DashboardRepository
+ {
   final DashboardInteractorReceiver _receiver;
   DashboardExecutor(this._receiver);
 
-  @override
+  
   Future<void> getListDashboard() async {
     const String endPoint = 'https://rickandmortyapi.com/api/character';
 

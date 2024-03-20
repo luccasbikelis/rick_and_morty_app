@@ -5,7 +5,6 @@ import 'package:rick_and_morty_app/presenter/dashboard/ui/character_detais_view.
 import 'package:rick_and_morty_app/presenter/dashboard/ui/widgets/character_info_widget.dart';
 import 'package:rick_and_morty_app/src/ui/dashboard/presenter/dashboard_presenter.dart';
 
-
 class DashboardView extends StatefulWidget {
   const DashboardView({Key? key}) : super(key: key);
   static const routeName = '/dashboard_view';
@@ -22,7 +21,7 @@ class _DashboardViewState extends State<DashboardView> {
   void initState() {
     // listCharactersController();
     _provider = DashboardPresenter();
-    
+    _provider!.getListDashboard();
 
     super.initState();
   }

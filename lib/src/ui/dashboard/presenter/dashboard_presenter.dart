@@ -16,24 +16,13 @@ class DashboardPresenter extends ChangeNotifier implements DashboardProvider, Da
   }
 
   @override
-  Future<ListCharactersEntity?> getListDashboard() async {
+  Future<void> getListDashboard() async {
     await _interactor.getListDashboard();
 
     listCharactersListenable.value = _listCharacter;
     listCharactersListenable.notifyListeners();
-
-    return _listCharacter;
   }
 
   @override
   void receiveListDashboard(ListCharactersEntity? listCharacter) {}
-
-  // @override
-  // Future<void> setListDashboard(List<CharacterEntity> listCharacter) {
-
-  //   throw UnimplementedError();
-  // }
 }
-
-
-

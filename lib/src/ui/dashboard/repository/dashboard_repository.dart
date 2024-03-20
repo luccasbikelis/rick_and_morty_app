@@ -1,4 +1,3 @@
-abstract class DashboardRepository {
-  // void setListDashboard(List<CharacterEntity>? listCharacter);
-  Future<void> getListDashboard();
-}
+// abstract class DashboardRepository {
+//   Future<void> getListDashboard();
+// }
