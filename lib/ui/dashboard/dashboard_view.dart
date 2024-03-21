@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:rick_and_morty_app/design_system/colors/ds_colors.dart';
-import 'package:rick_and_morty_app/features/dashboard/domain/entities/list_characters_entity.dart';
-import 'package:rick_and_morty_app/presenter/dashboard/controllers/list_characters_controller.dart';
-import 'package:rick_and_morty_app/presenter/dashboard/ui/character_detais_view.dart';
-import 'package:rick_and_morty_app/presenter/dashboard/ui/widgets/character_info_widget.dart';
+import 'package:rick_and_morty_app/ui/dashboard/character_detais_view.dart';
+import 'package:rick_and_morty_app/ui/dashboard/components/character_info_widget.dart';
+import 'package:rick_and_morty_app/ui/dashboard/model/list_characters_entity.dart';
+import 'package:rick_and_morty_app/ui/dashboard/presenter/obtain_list_characters_presenter.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({Key? key}) : super(key: key);
@@ -14,13 +13,21 @@ class DashboardView extends StatefulWidget {
   State<DashboardView> createState() => _DashboardViewState();
 }
 
-final listCharactersController = GetIt.I<ListCharactersController>();
+ObtainListCharactersPresenter? _provider;
 
 class _DashboardViewState extends State<DashboardView> {
   @override
   void initState() {
-    listCharactersController();
+    _provider = ObtainListCharactersPresenter();
+    _provider!.obtainListCharacters();
+
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _provider!.dispose();
+    super.dispose();
   }
 
   @override
@@ -36,7 +43,7 @@ class _DashboardViewState extends State<DashboardView> {
         backgroundColor: DSColors.blue,
       ),
       body: ValueListenableBuilder<ListCharactersEntity?>(
-          valueListenable: listCharactersController.listCharactersListenable,
+          valueListenable: _provider!.listCharactersListenable,
           builder: (context, snapshot, _) {
             if (snapshot == null) {
               return const Center(
@@ -70,14 +77,14 @@ class _DashboardViewState extends State<DashboardView> {
                               },
                               child: Card(
                                 child: ListTile(
-                                    title: Column(children: [
-
-                                      CharacterInfoWidget(
-                                  character: character,
-                                  index: index,
-                                ),
-                              
-                                    ],)),
+                                    title: Column(
+                                  children: [
+                                    CharacterInfoWidget(
+                                      character: character,
+                                      index: index,
+                                    ),
+                                  ],
+                                )),
                               ),
                             ));
                       }),

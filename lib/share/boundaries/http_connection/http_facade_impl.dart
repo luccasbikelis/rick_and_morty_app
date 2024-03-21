@@ -1,5 +1,7 @@
-import 'package:rick_and_morty_app/share/boundaries/http_connection/http_facade.dart';
 import 'package:dio/dio.dart';
+
+import 'package:rick_and_morty_app/share/boundaries/http_connection/http_facade.dart';
+
 import 'exception/exception_status/exception.dart';
 
 class HttpFacadeImpl implements HttpFacade {

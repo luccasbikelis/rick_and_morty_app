@@ -1,7 +1,8 @@
-import 'package:rick_and_morty_app/features/dashboard/data/model/character_model.dart';
-import 'package:rick_and_morty_app/features/dashboard/domain/entities/character_entity.dart';
-import 'package:rick_and_morty_app/features/dashboard/domain/entities/list_characters_entity.dart';
+
 import 'package:rick_and_morty_app/share/base/model/model.dart';
+import 'character_entity.dart';
+import 'character_model.dart';
+import 'list_characters_entity.dart';
 
 class ListCharactersModel extends ListCharactersEntity implements Model {
   ListCharactersModel(
