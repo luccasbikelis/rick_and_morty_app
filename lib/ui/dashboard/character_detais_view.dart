@@ -66,7 +66,7 @@ class CharacterDetailsView extends StatelessWidget {
       text: TextSpan(
         text: text,
         style: const TextStyle(
-            fontSize: 16, fontWeight: FontWeight.bold, color: DSColors.purple),
+            fontSize: 16, fontWeight: FontWeight.bold, color: DSColors.gray),
         children: <TextSpan>[
           TextSpan(
             text: listText,
