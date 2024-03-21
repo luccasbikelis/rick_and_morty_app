@@ -1,9 +1,11 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_app/features/dashboard/domain/entities/list_characters_entity.dart';
-import 'package:rick_and_morty_app/src/ui/dashboard/interactor/dashboard_interactor.dart';
-import 'package:rick_and_morty_app/src/ui/dashboard/interactor/dashboard_interactor_provider.dart';
-import 'package:rick_and_morty_app/src/ui/dashboard/presenter/dashboard_listener.dart';
-import 'package:rick_and_morty_app/src/ui/dashboard/presenter/dashboard_provider.dart';
+import 'package:rick_and_morty_app/ui/dashboard/interactor/dashboard_interactor.dart';
+import 'package:rick_and_morty_app/ui/dashboard/interactor/dashboard_interactor_provider.dart';
+import 'package:rick_and_morty_app/ui/dashboard/model/list_characters_entity.dart';
+import 'package:rick_and_morty_app/ui/dashboard/presenter/dashboard_listener.dart';
+import 'package:rick_and_morty_app/ui/dashboard/presenter/dashboard_provider.dart';
 
 class DashboardPresenter extends ChangeNotifier implements DashboardProvider, DashboardListener {
   late DashboardInteractorProvider _interactor;
@@ -16,13 +18,16 @@ class DashboardPresenter extends ChangeNotifier implements DashboardProvider, Da
   }
 
   @override
-  Future<void> getListDashboard() async {
+  Future<void> getListCharactersDashboard() async {
     await _interactor.getListDashboard();
+
 
     listCharactersListenable.value = _listCharacter;
     listCharactersListenable.notifyListeners();
   }
 
   @override
-  void receiveListDashboard(ListCharactersEntity? listCharacter) {}
+  void receivedListCharactersDashboard(ListCharactersEntity? listCharacter) {
+    _listCharacter = listCharacter;
+  }
 }

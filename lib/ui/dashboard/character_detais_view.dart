@@ -1,7 +1,9 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_app/design_system/colors/ds_colors.dart';
-import 'package:rick_and_morty_app/features/dashboard/domain/entities/list_characters_entity.dart';
-import 'package:rick_and_morty_app/presenter/dashboard/ui/widgets/character_info_widget.dart';
+import 'package:rick_and_morty_app/ui/dashboard/components/character_info_widget.dart';
+import 'package:rick_and_morty_app/ui/dashboard/model/list_characters_entity.dart';
 
 class CharacterDetailsView extends StatelessWidget {
   final ListCharactersEntity character;

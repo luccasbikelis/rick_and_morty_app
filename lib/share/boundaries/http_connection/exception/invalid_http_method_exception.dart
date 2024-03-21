@@ -1,3 +1,5 @@
+
+
 import 'package:rick_and_morty_app/share/base/exception/base_exception.dart';
 
 class InvalidHttpMethodException extends BaseException {

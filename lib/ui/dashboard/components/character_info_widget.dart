@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_app/features/dashboard/domain/entities/list_characters_entity.dart';
 import 'package:rick_and_morty_app/share/util/date_util.dart';
+import 'package:rick_and_morty_app/ui/dashboard/model/list_characters_entity.dart';
+
+
 
 class CharacterInfoWidget extends StatelessWidget {
   final ListCharactersEntity character;

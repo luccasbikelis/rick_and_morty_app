@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:rick_and_morty_app/app/controller.dart';
 import 'package:rick_and_morty_app/app/routes/uol_routes.dart';
 
+
 final navigatorKey = GlobalKey<NavigatorState>();
 
 class App extends StatefulWidget {

@@ -1,9 +1,12 @@
+
+
+
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_app/design_system/colors/ds_colors.dart';
-import 'package:rick_and_morty_app/features/dashboard/domain/entities/list_characters_entity.dart';
-import 'package:rick_and_morty_app/presenter/dashboard/ui/character_detais_view.dart';
-import 'package:rick_and_morty_app/presenter/dashboard/ui/widgets/character_info_widget.dart';
-import 'package:rick_and_morty_app/src/ui/dashboard/presenter/dashboard_presenter.dart';
+import 'package:rick_and_morty_app/ui/dashboard/character_detais_view.dart';
+import 'package:rick_and_morty_app/ui/dashboard/components/character_info_widget.dart';
+import 'package:rick_and_morty_app/ui/dashboard/model/list_characters_entity.dart';
+import 'package:rick_and_morty_app/ui/dashboard/presenter/dashboard_presenter.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({Key? key}) : super(key: key);
@@ -13,15 +16,14 @@ class DashboardView extends StatefulWidget {
   State<DashboardView> createState() => _DashboardViewState();
 }
 
-// final listCharactersController = GetIt.I<ListCharactersController>();
 DashboardPresenter? _provider;
 
 class _DashboardViewState extends State<DashboardView> {
   @override
   void initState() {
-    // listCharactersController();
+   
     _provider = DashboardPresenter();
-    _provider!.getListDashboard();
+    _provider!.getListCharactersDashboard();
 
     super.initState();
   }
